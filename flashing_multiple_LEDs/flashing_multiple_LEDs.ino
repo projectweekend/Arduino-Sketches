@@ -1,4 +1,4 @@
-int timeInterval = 100;
+int timeInterval = 250;
 int ledPins[] = {7, 8, 12};
 int totalPins = 3;
 
