@@ -3,8 +3,15 @@
 int sensorPin = 0;
 
 
-float convertCelsiusToFahrenheit(float c) {
-    float f = (c * 9.0 / 5.0) + 32.0;
+float calculateTemp(int rawPinReading) {
+    float voltage = (rawPinReading * aref_voltage)/1024;
+    float temp = (voltage - 0.5) * 100;
+    return temp;
+}
+
+
+float convertCelsiusToFahrenheit(float celsius) {
+    float f = (celsius * 9.0 / 5.0) + 32.0;
     return f;
 }
  
@@ -20,11 +27,8 @@ void loop()
 {
 
     int reading = analogRead(sensorPin);
- 
-    float voltage = reading * aref_voltage;
-    voltage = voltage/1024;
- 
-    float temperatureC = (voltage - 0.5) * 100;
+    
+    float temperatureC = calculateTemp(reading);
     Serial.print(temperatureC); Serial.println(" degrees C");
  
     float temperatureF = convertCelsiusToFahrenheit(temperatureC);
