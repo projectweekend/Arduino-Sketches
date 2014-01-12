@@ -9,7 +9,7 @@ void setup()
 
 void loop()
 {
-    float reading = analogRead(inputPin);
+    int reading = analogRead(inputPin);
 
     Serial.print(reading);
 
