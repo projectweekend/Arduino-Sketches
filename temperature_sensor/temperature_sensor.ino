@@ -1,3 +1,4 @@
+#define aref_voltage 3.3
 
 int sensorPin = 0;
 
@@ -11,25 +12,26 @@ float convertCelsiusToFahrenheit(float c) {
 void setup()
 {
     Serial.begin(9600);
+    analogReference(EXTERNAL);
 }
 
 
 void loop()
 {
 
-    int reading = analogRead(sensorPin);  
+    int reading = analogRead(sensorPin);
  
-    float voltage = reading * 5.0;
-    voltage /= 1024.0; 
+    float voltage = reading * aref_voltage;
+    voltage = voltage/1024;
  
-    Serial.print(voltage); Serial.println(" volts");
- 
-    float temperatureC = (voltage - 0.5) * 100 ;
+    float temperatureC = (voltage - 0.5) * 100;
     Serial.print(temperatureC); Serial.println(" degrees C");
  
     float temperatureF = convertCelsiusToFahrenheit(temperatureC);
     Serial.print(temperatureF); Serial.println(" degrees F");
+
+    Serial.println("=======================");
  
-    delay(1000);
-    
+    delay(5000);
+
 }
