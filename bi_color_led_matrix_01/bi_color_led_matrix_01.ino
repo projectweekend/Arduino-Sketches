@@ -27,7 +27,8 @@ void setup() {
 void loop() {
 
     matrix.clear();
-    delay(500);
+    matrix.writeDisplay();
+    delay(1000);
 
     animatePixel(3, 3, 3, 300);
     animatePixel(3, 4, 3, 300);
