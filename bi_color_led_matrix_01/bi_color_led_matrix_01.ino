@@ -30,9 +30,22 @@ void loop() {
     matrix.writeDisplay();
     delay(1000);
 
+    // Draw center box
     animatePixel(3, 3, 3, 300);
     animatePixel(3, 4, 3, 300);
     animatePixel(4, 4, 3, 300);
     animatePixel(4, 3, 3, 300);
+
+    // Draw top left corner box
+    animatePixel(7, 0, 1, 300);
+    animatePixel(7, 1, 1, 300);
+    animatePixel(6, 1, 1, 300);
+    animatePixel(6, 0, 1, 300);
+
+    // Draw top right corner box
+    animatePixel(7, 7, 1, 300);
+    animatePixel(7, 6, 1, 300);
+    animatePixel(6, 6, 1, 300);
+    animatePixel(6, 7, 1, 300);    
 
 }
